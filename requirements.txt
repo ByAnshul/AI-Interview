@@ -1,13 +1,9 @@
 Flask
-python-dotenv
-google-cloud-speech
-SpeechRecognition
-pyaudio
-pipwin
-fitz  # alias for PyMuPDF, use below instead
-PyMuPDF
-bcrypt
+Flask-Cors
+gunicorn
 requests
-openai==1.14.2  
-google-generativeai
+openai==1.14.2
+python-dotenv
+whisper
+bcrypt==4.1.2
 cffi>=1.15.1
