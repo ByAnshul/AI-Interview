@@ -8,5 +8,5 @@ fitz  # alias for PyMuPDF, use below instead
 PyMuPDF
 bcrypt
 requests
-openai
+openai==1.14.2  
 google-generativeai
