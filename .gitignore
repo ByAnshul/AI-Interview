@@ -1,0 +1,19 @@
+# Ignore environment variables
+.env
+
+# Ignore credentials
+extra/my_creds.json
+ai models/whisperai.py
+trapp.py
+
+# Ignore database
+users.db
+
+# Ignore __pycache__
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore uploads
+static/uploads/

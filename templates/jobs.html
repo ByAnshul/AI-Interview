@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Jobs – JobHire</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "DM Sans", "Inter", sans-serif;
+        background: #f5f5f5;
+        font-size: 1.2rem;
+      }
+
+      header {
+        background-color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 24px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        color: #007bff;
+      }
+
+      .auth-buttons {
+        display: flex;
+        gap: 10px;
+      }
+
+      .auth-buttons button {
+        padding: 6px 14px;
+        font-size: 14px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .login-btn {
+        background-color: #ffffff;
+        border: 1px solid black;
+        font-weight: 600;
+        color: rgb(88, 93, 97);
+      }
+
+      .signup-btn {
+        background-color: oklch(50.8% 0.118 165.612);
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .content {
+        padding: 40px;
+        background: rgba(150, 222, 175, 0.61);
+      }
+
+      .job-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+        margin-top: 30px;
+      }
+
+      .job-link {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .job-card {
+        background: rgb(255, 255, 255);
+        border-radius: 12px;
+        padding: 20px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .job-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      }
+
+      .job-title-main {
+        font-size: 18px;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 8px;
+      }
+
+      .company-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: #3aa76d;
+        margin-bottom: 8px;
+      }
+
+      .job-description {
+        font-size: 14px;
+        color: #444;
+        margin-bottom: 14px;
+      }
+
+      .tag-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .tag {
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 500;
+        color: white;
+      }
+
+      .green-tag {
+        background-color: #28a745;
+      }
+      .blue-tag {
+        background-color: #007bff;
+      }
+      .purple-tag {
+        background-color: #6f42c1;
+      }
+
+      .job-footer {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        color: #666;
+      }
+
+      @media (max-width: 768px) {
+        .job-footer {
+          flex-direction: column;
+          gap: 5px;
+        }
+      }
+      .profile-btn{
+        background-color:rgb(55, 204, 90);
+        border: 1px solid black;
+        font-weight: 600;
+        color: white;
+        
+      }
+      .logout-btn{
+        background-color:#007bff;
+        border: 1px solid black;
+        font-weight: 600;
+        color: rgb(251, 251, 251);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">JobHire</div>
+      <nav class="nav-links">
+        <a  href="/">Home</a>
+        <a href="/jobs">Jobs</a>
+        <a href="/price">Price</a>
+      </nav>
+      <div class="auth-buttons">
+        {% if not user_id %}
+          <button class="login-btn" onclick="location.href='/loginPage'">Login</button>
+          <button class="signup-btn" onclick="location.href='/loginPage'">Signup</button>
+        {% else %}
+          <!-- Optional: Show profile or logout -->
+          <button class="profile-btn" onclick="location.href='/profile'">My Profile</button>
+          <button class="logout-btn" onclick="location.href='/logout'">Logout</button>
+        {% endif %}
+      </div>
+      
+
+    </header>
+
+    <div class="content">
+      <h2>Available Jobs</h2>
+      <p>Explore job opportunities and prepare for your interviews</p>
+
+      <div class="job-grid">
+        <!-- Card 1 -->
+        <a href="/jobs/1" class="job-link">
+          <div class="job-card">
+            <div class="job-title-main">Frontend Developer</div>
+            <div class="company-name">HireMentis</div>
+            <div class="job-description">
+              We are looking for a skilled Frontend Developer to join our team
+              using React.js.
+            </div>
+            <div class="tag-group">
+              <div class="tag green-tag">Full-time</div>
+              <div class="tag blue-tag">Mid</div>
+              <div class="tag purple-tag">Technology</div>
+            </div>
+            <div class="job-footer">
+              <span>Meerut, India</span>
+              <span>Posted: 5/10/2025</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="/jobs/2" class="job-link">
+            <div class="job-card">
+            <div class="job-title-main">Backend Engineer</div>
+            <div class="company-name">ChaiCode</div>
+            <div class="job-description">
+              Join our backend team to build scalable enterprise applications.
+            </div>
+            <div class="tag-group">
+              <div class="tag green-tag">Full-time</div>
+              <div class="tag blue-tag">Senior</div>
+              <div class="tag purple-tag">Technology</div>
+            </div>
+            <div class="job-footer">
+              <span>Jaipur, India</span>
+              <span>Posted: 5/12/2025</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="/jobs/3" class="job-link">
+            <div class="job-card">
+            <div class="job-title-main">Full Stack Developer</div>
+            <div class="company-name">Learnyst</div>
+            <div class="job-description">
+              Develop scalable web apps using both frontend and backend
+              technologies.
+            </div>
+            <div class="tag-group">
+              <div class="tag green-tag">Full-time</div>
+              <div class="tag blue-tag">Mid</div>
+              <div class="tag purple-tag">Technology</div>
+            </div>
+            <div class="job-footer">
+              <span>Bengaluru, India</span>
+              <span>Posted: 5/25/2025</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="/jobs/4" class="job-link">
+            <div class="job-card">
+            <div class="job-title-main">Software Engineer</div>
+            <div class="company-name">ChaiCode</div>
+            <div class="job-description">
+              Be a part of a fast-moving team and build high-quality software
+              solutions.
+            </div>
+            <div class="tag-group">
+              <div class="tag green-tag">Full-time</div>
+              <div class="tag blue-tag">Mid</div>
+              <div class="tag purple-tag">Technology</div>
+            </div>
+            <div class="job-footer">
+              <span>Jaipur, India</span>
+              <span>Posted: 5/25/2025</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 5 -->
+        <a href="/jobs/5" class="job-link">
+            <div class="job-card">
+            <div class="job-title-main">JavaScript Developer</div>
+            <div class="company-name">Teachyst</div>
+            <div class="job-description">
+              Develop rich UI experiences and improve performance in real-time
+              apps.
+            </div>
+            <div class="tag-group">
+              <div class="tag green-tag">Full-time</div>
+              <div class="tag blue-tag">Mid</div>
+              <div class="tag purple-tag">Technology</div>
+            </div>
+            <div class="job-footer">
+              <span>Patiala, India</span>
+              <span>Posted: 5/25/2025</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 6 -->
+        <a href="/jobs/6" class="job-link">
+            <div class="job-card">
+            <div class="job-title-main">Python Developer</div>
+            <div class="company-name">HireMentis</div>
+            <div class="job-description">
+              Build backend services and automation tools with Python & Django.
+            </div>
+            <div class="tag-group">
+              <div class="tag green-tag">Full-time</div>
+              <div class="tag blue-tag">Mid</div>
+              <div class="tag purple-tag">Technology</div>
+            </div>
+            <div class="job-footer">
+              <span>Meerut, India</span>
+              <span>Posted: 5/25/2025</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profile – JobHire</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=DM+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'DM Sans', 'Inter', sans-serif;
+      background:rgb(224, 224, 224);
+      color: #0d0d0d;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: rgba(5, 10, 30, 0.8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      box-shadow: 0 2px 12px rgba(0, 255, 170, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: #00ff88;
+      text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #e0f7fa;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #00ff88;
+    }
+
+    .auth-buttons {
+      display: flex;
+      visibility: hidden;
+      gap: 10px;
+    }
+
+    .auth-buttons button {
+      padding: 6px 14px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .login-btn {
+      background-color: transparent;
+      border: 1px solid #00ff88;
+      color: #00ff88;
+      font-weight: 600;
+    }
+
+    .signup-btn {
+      background-color: #00ff88;
+      color: #000;
+      font-weight: 600;
+    }
+
+    .profile-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: rgba(253, 253, 253, 0.75);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 8px 20px rgba(0, 255, 150, 0.1);
+      backdrop-filter: blur(12px);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #0d0d0d;;
+    }
+
+    .upload-box {
+      border: 2px dashed #00ffff;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      color: #0d0d0d;;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .upload-box:hover {
+      background-color: rgba(0, 255, 255, 0.1);
+    }
+
+    .upload-btn {
+      background-color: #00ff88;
+      color: #000;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-top: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .upload-btn:hover {
+      background-color: #00e676;
+    }
+
+    .name-line {
+      font-size: 1.6rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pronouns {
+      font-size: 1rem;
+      color: #0d0d0d;
+    }
+
+    .edit-profile {
+      font-size: 0.9rem;
+      margin-top: 8px;
+      color: #0d0d0d;
+      cursor: pointer;
+    }
+
+    .edit-profile:hover {
+      text-decoration: underline;
+    }
+
+    a {
+      color: #0d0d0d;;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    p, label {
+      color:black;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">JobHire</div>
+  <nav class="nav-links">
+    <a href="/">Home</a>
+    <a href="/jobs">Jobs</a>
+    <a href="#">Price</a>
+  </nav>
+  <div class="auth-buttons">
+    <button class="login-btn">Login</button>
+    <button class="signup-btn">Signup</button>
+  </div>
+</header>
+
+<div class="profile-container">
+  <!-- Left Profile Info -->
+  <div class="card">
+    <div class="name-line">👋 {{ name }}</div>
+    <div class="pronouns">👤 {{ pronouns if pronouns else "Data Unavailable" }}</div>
+    <a href="{{ url_for('profile_settings') }}">
+      <div class="edit-profile">✏ Edit Profile</div>
+    </a>
+    <p style="margin-top: 20px; color: #aaa;">
+      {{ bio if bio else "No bio provided" }}
+    </p>
+    <p><strong>🌍 Location:</strong> {{ location if location else "Not specified" }}</p>
+    <p><strong>🔗 Website:</strong> <a href="{{ website }}" target="_blank">{{ website }}</a></p>
+    <p><strong>📅 Calendar:</strong> <a href="{{ calendar_link }}" target="_blank">{{ calendar_link }}</a></p>
+    <p><strong>🐦 Twitter:</strong> <a href="{{ twitter }}" target="_blank">{{ twitter }}</a></p>
+    <p><strong>💼 LinkedIn:</strong> <a href="{{ linkedin }}" target="_blank">{{ linkedin }}</a></p>
+    <p><strong>👨‍💻 GitHub:</strong> <a href="{{ github }}" target="_blank">{{ github }}</a></p>
+    <p><strong>📸 Instagram:</strong> <a href="{{ instagram }}" target="_blank">{{ instagram }}</a></p>
+  </div>
+
+  <!-- Right Info Panel -->
+  <div class="card">
+    <h2>📌 Skills & Interests</h2>
+    <p>{{ skills if skills else "No skills or interests listed." }}</p>
+
+    <h2 style="margin-top: 30px;">📄 Resume</h2>
+    <form method="POST" action="/update_profile" enctype="multipart/form-data">
+      <label for="resume" class="upload-box">
+        📤 <span id="resumeLabel">
+          {% if user.resume_path %}
+            {{ user.resume_path.split('/')[-1] }}  <!-- show only file name -->
+          {% else %}
+            Upload Resume (PDF Only)
+          {% endif %}
+        </span>
+        <input type="file" name="resume" accept="application/pdf" required style="display:none;" id="resumeUpload" onchange="updateResumeLabel()">
+      </label>
+      <button type="submit" class="upload-btn">Upload Resume</button>
+
+    </form>
+
+    {% if resume %}
+      <p>📄 
+        <a href="{{ url_for('static', filename='/' + resume) }}" target="_blank" rel="noopener noreferrer">
+           View Uploaded Resume
+        </a>
+              </p>
+    {% else %}
+      <p style="color: #aaa;">📭 No resume uploaded yet</p>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  function updateResumeLabel() {
+    const input = document.getElementById('resumeUpload');
+    const label = document.getElementById('resumeLabel');
+    if (input.files.length > 0) {
+      label.textContent = input.files[0].name;
+    }
+  }
+
+
+  document.querySelector('.upload-btn').onclick = () => {
+    document.getElementById('resumeUpload').click();
+  };
+
+  document.getElementById('resumeUpload').addEventListener('change', function () {
+    if (this.files.length > 0) {
+      alert('Resume "' + this.files[0].name + '" uploaded successfully.');
+    }
+  });
+</script>
+
+</body>
+</html>

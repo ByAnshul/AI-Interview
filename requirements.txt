@@ -1,0 +1,12 @@
+Flask
+python-dotenv
+google-cloud-speech
+SpeechRecognition
+pyaudio
+pipwin
+fitz  # alias for PyMuPDF, use below instead
+PyMuPDF
+bcrypt
+requests
+openai
+google-generativeai

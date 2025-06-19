@@ -1,0 +1,48 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <title>Speech to Text</title>
+    </head>
+    <body>
+    <h2>🎙 Speak and get text:</h2>
+    <button onclick="startRecording()">Start</button>
+    <button onclick="stopRecording()">Stop</button>
+    <p><strong>Transcript:</strong></p>
+    <div id="result"></div>
+
+    <script>
+        let mediaRecorder;
+        let audioChunks = [];
+
+        async function startRecording() {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.start();
+        audioChunks = [];
+
+        mediaRecorder.ondataavailable = event => {
+            audioChunks.push(event.data);
+        };
+        }
+
+        function stopRecording() {
+        mediaRecorder.stop();
+
+        mediaRecorder.onstop = async () => {
+            const blob = new Blob(audioChunks, { type: 'audio/wav' });
+            const formData = new FormData();
+            formData.append('audio', blob, 'recording.wav');
+
+            const res = await fetch('/transcribe', {
+            method: 'POST',
+            body: formData
+            });
+
+            const data = await res.json();
+            document.getElementById('result').innerText = data.transcript || 'No speech detected.';
+        };
+        }
+    </script>
+    </body>
+    </html>

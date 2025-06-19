@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobHire</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+
+      background: #f5f5f5;
+    }
+
+    header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #007BFF;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .auth-buttons button {
+      padding: 6px 14px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .login-btn {
+      background-color: #ffffff;
+      border: 1px solid black;
+      font-weight:600;
+      color:rgb(88, 93, 97);
+    }
+
+    .signup-btn {
+        background-color:oklch(50.8% .118 165.612);
+      color: #fff;
+      font-weight:600;
+
+    }
+
+    .login-btn:hover {
+      background-color: #e6f0ff;
+    }
+
+    .signup-btn:hover {
+      background-color: #0056b3;
+    }
+
+    @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        margin: 10px 0;
+      }
+
+      .auth-buttons {
+        align-self: flex-end;
+      }
+    }
+    .hero{
+        text-align:center;
+        padding:50px 20px;
+        background-color:rgb(184, 236, 210);
+    }
+    .hero-content h1{
+        font-size:3.5rem;
+        margin  
+    }
+    .practice{
+        padding:10px 20px;
+        font-size:1.2rem;
+        background-color:oklch(50.8% .118 165.612);
+        color:white;
+        border:none;
+        border-radius:5px;
+        cursor:pointer;
+        margin:10px 20px;
+    }
+    p{
+        font-size:1.1rem;
+    }
+    .avatar-stack {
+        display: flex;
+        padding: 10px;
+        gap: 0;
+        justify-content: center;
+      }
+      
+      .avatar-stack .avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        color: #fff;
+        font-weight: bold;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-left: -15px; /* Creates overlapping effect */
+        z-index: 1;
+        transition: transform 0.2s ease, z-index 0.2s;
+        cursor: pointer;
+      }
+      
+      .avatar-stack .avatar:first-child {
+        margin-left: 0; /* No overlap for the first avatar */
+      }
+      .avatar-text {
+        margin: 10px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #444;
+        white-space: nowrap;
+      }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">JobHire</div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="/jobs">Jobs</a>
+      <a href="/price">Price</a>
+    </nav>
+    <div class="auth-buttons">
+      <button onclick="window.location.href='/loginPage'" class="login-btn">Login</button>
+      <button onclick="window.location.href='/loginPage'" class="signup-btn">Signup</button>
+
+    </div>
+  </header>
+  <div class="hero">
+
+    <div class="hero-content">
+    <h1>Ace Your Next Interview with</h1>
+    <h1 style="color: oklch(69.6% .17 162.48)">AI-Powered Practice</h1>
+    </div>
+
+    <p>Prepare for any job interview with personalized AI feedback, realistic mock </p>
+    <p>interviews, and expert curated questions tailored to your industry.</p>
+
+    <button class="practice" onclick="location.href='/jobs'">Start Practising Free</button>
+
+    <div class="avatar-stack">
+        <div class="avatar" style="background-color: #FF6B6B;">AS</div>
+        <div class="avatar" style="background-color: #6BCB77;">RK</div>
+        <div class="avatar" style="background-color: #4D96FF;">NP</div>
+        <div class="avatar" style="background-color: #FFD93D;">SM</div>
+        <div class="avatar" style="background-color: #9D4EDD;">MT</div>
+        <div class="avatar" style="background-color: #FF7F50;">100+</div>
+      </div>
+      <div class="avatar-text">Trusted by 100+ job seekers</div>
+      
+      
+</div>
+</body>
+</html>

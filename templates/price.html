@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
+}
+body {
+  background-color: #dff9fb;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+h1 {
+  text-align: center;
+  margin-top: 2rem;
+}
+p {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.pricing {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .plan {
+    background-color: #fff;
+    padding: 2.5rem;
+    margin: 12px;
+    border-radius: 5px;
+    text-align: center;
+    transition: 0.3s;
+    cursor: pointer;
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      margin-bottom: 1rem;
+      font-size: 30px;
+    }
+
+    ul.features {
+      list-style-type: none;
+      text-align: center;
+      li {
+        margin: 8px;
+        .fas {
+          margin-right: 4px;
+        }
+        .fa-check-circle {
+          color: #6ab04c;
+        }
+        .fa-times-circle {
+          color: #eb4d4b;
+        }
+      }
+    }
+
+    button {
+      border: none;
+      width: 100%;
+      padding: 12px 35px;
+      margin-top: 1rem;
+      background-color: #6ab04c;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    &.popular {
+      border: 2px solid #6ab04c;
+      position: relative;
+      transform: scale(1.08);
+
+      span {
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #6ab04c;
+        color: #fff;
+        padding: 4px 20px;
+        font-size: 18px;
+        border-radius: 5px;
+      }
+    }
+
+    &:hover {
+      box-shadow: 5px 7px 67px -28px rgba(0, 0, 0, 0.37);
+    }
+  }
+}
+
+</style>
+<body>
+    <h1>Choose the plan that fits for your needs</h1>
+    <p>
+      Clear interview preparation with our structured plans. 
+
+    <div class="pricing">
+      <div class="plan">
+        <h2>Dev</h2>
+        <div class="price">FREE</div>
+        <ul class="features">
+          <li><i class="fas fa-check-circle"></i> View Jobs</li>
+          <li><i class="fas fa-check-circle"></i> Upload Resume</li>
+          <li><i class="fas fa-check-circle"></i> No AI Interview ❌</li>
+        <li><i class="fas fa-check-circle"></i> No Practice ❌</li>
+        </ul>
+        <button onclick="window.location.href='/loginPage'" class="signup-btn">Signup</button>
+
+      </div>
+      <div class="plan popular">
+        <span>Most Popular</span>
+        <h2>Pro</h2>
+        <div class="price">$10/month</div>
+        <ul class="features">
+            <li><i class="fas fa-check-circle"></i> View Jobs</li>
+            <li><i class="fas fa-check-circle"></i> Upload Resume</li>
+            <li><i class="fas fa-check-circle"></i>5 AI Interview ✅</li>
+          <li><i class="fas fa-check-circle"></i>Partial Practice ✅ </li>
+        </ul>
+        <button>Buy Now</button>
+      </div>
+      <div class="plan">
+        <h2>Custom </h2>
+        <div class="price">Custom Pricing</div>
+        <ul class="features">
+            <li><i class="fas fa-check-circle"></i> View Jobs</li>
+            <li><i class="fas fa-check-circle"></i> Upload Resume</li>
+            <li><i class="fas fa-check-circle"></i>Multiple AI Interview ✅</li>
+          <li><i class="fas fa-check-circle"></i>Proper Training ✅ </li>
+        </ul>
+        <button>Contact Us</button>
+      </div>
+    </div>
+</body>
+</html>

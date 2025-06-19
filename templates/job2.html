@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Backend Engineer – JobHire</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=DM+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'DM Sans', 'Inter', sans-serif;
+      background: #f5f5f5;
+      font-size: 1.2rem;
+    }
+
+    header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover {
+      color: #007BFF;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .auth-buttons button {
+      padding: 6px 14px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .login-btn {
+      background-color: #ffffff;
+      border: 1px solid black;
+      font-weight: 600;
+      color: rgb(88, 93, 97);
+    }
+
+    .signup-btn {
+      background-color: oklch(50.8% .118 165.612);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .container {
+      display: flex;
+      padding: 40px;
+      gap: 40px;
+    }
+
+    .left-section {
+      flex: 7;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .right-section {
+      flex: 3;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      height: fit-content;
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+
+    .tag-group {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .tag {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      color: white;
+    }
+
+    .green-tag { background-color: #28a745; }
+    .blue-tag { background-color: #007bff; }
+    .purple-tag { background-color: #6f42c1; }
+
+    .section-title {
+      font-weight: 700;
+      margin-top: 20px;
+      color: #333;
+    }
+    .right-section {
+      width: 30%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      font-size: 16px;
+    }
+    
+    .summary-heading {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #2c3e50;
+    }
+    
+    .summary-block {
+      margin-bottom: 20px; /* space between each group */
+    }
+    
+    .job-detail {
+      margin-bottom: 8px;
+      color: #444;
+    }
+    
+    .practice-btn {
+      margin-top: 10px;
+      padding: 10px 18px;
+      background-color: #28a745; /* green */
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+      width: 100%;
+    }
+    
+    .practice-btn:hover {
+      background-color: #23963d;
+    }
+    
+    .profile-btn{
+      background-color:rgb(55, 204, 90);
+      border: 1px solid black;
+      font-weight: 600;
+      color: white;
+      
+    }
+    .logout-btn{
+      background-color:#007bff;
+      border: 1px solid black;
+      font-weight: 600;
+      color: rgb(251, 251, 251);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">JobHire</div>
+  <nav class="nav-links">
+    <a  href="/">Home</a>
+    <a href="/jobs">Jobs</a>
+    <a href="/price">Price</a>
+  </nav>
+  <div class="auth-buttons">
+    {% if not user_id %}
+      <button class="login-btn" onclick="location.href='/loginPage'">Login</button>
+      <button class="signup-btn" onclick="location.href='/loginPage'">Signup</button>
+    {% else %}
+      <!-- Optional: Show profile or logout -->
+      <button class="profile-btn" onclick="location.href='/profile'">My Profile</button>
+      <button class="logout-btn" onclick="location.href='/logout'">Logout</button>
+    {% endif %}
+  </div>
+</header>
+
+<div class="container">
+  <!-- LEFT -->
+  <div class="left-section">
+    <h1>Backend Engineer</h1>
+    <div><strong>ChaiCode</strong> • Jaipur, India</div>
+
+    <div class="tag-group">
+      <div class="tag green-tag">Full-time</div>
+      <div class="tag blue-tag">Senior</div>
+      <div class="tag purple-tag">Technology</div>
+    </div>
+
+    <div class="section-title">Job Description</div>
+    <p>
+      Join our backend team to build scalable and resilient systems that power our enterprise applications.
+    </p>
+
+    <div class="section-title">Requirements</div>
+    <ul>
+      <li>5+ years of experience in backend development</li>
+      <li>Strong knowledge of Node.js, Python, or Java</li>
+      <li>Experience with databases (SQL and NoSQL)</li>
+      <li>Understanding of server-side templating languages</li>
+      <li>Knowledge of API design and development</li>
+    </ul>
+
+    <div class="section-title">Responsibilities</div>
+    <ul>
+      <li>Design and implement backend services and APIs</li>
+      <li>Optimize application performance and responsiveness</li>
+      <li>Collaborate with frontend developers to integrate user-facing elements</li>
+      <li>Implement security and data protection measures</li>
+      <li>Write clean, maintainable code with proper documentation</li>
+    </ul>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right-section">
+    <h3 class="summary-heading">Job Summary</h3>
+
+    <div class="summary-block">
+      <div class="job-detail"><strong>Company:</strong> ChaiCode</div>
+      <div class="job-detail"><strong>Location:</strong> Jaipur, India</div>
+    </div>
+
+    <div class="summary-block">
+      <div class="job-detail"><strong>Job Type:</strong> Full-time</div>
+      <div class="job-detail"><strong>Experience Level:</strong> Senior</div>
+    </div>
+
+    <div class="summary-block">
+      <div class="job-detail"><strong>Salary Range:</strong> ₹18,00,000 – ₹25,00,000</div>
+      <div class="job-detail"><strong>Posted Date:</strong> 12/05/2025</div>
+    </div>
+
+    <button class="practice-btn">Practice Interview Now</button>
+  </div>
+</div>
+
+</body>
+</html>
