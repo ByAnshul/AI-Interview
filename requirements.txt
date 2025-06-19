@@ -10,3 +10,4 @@ bcrypt
 requests
 openai==1.14.2  
 google-generativeai
+cffi>=1.15.1
